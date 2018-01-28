@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'Web Poetry Book',
   },
   plugins: ['gatsby-plugin-react-helmet'],
 };
