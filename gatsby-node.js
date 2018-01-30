@@ -38,6 +38,18 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
               max: result.data.allFile.edges.length,
             }
           });
+
+          if (i+1 === result.data.allFile.edges.length) {
+            createPage({
+              path: '/',
+              component: blogPostTemplate,
+              context: {
+                slug: node.id,
+                index: i+1,
+                max: result.data.allFile.edges.length,
+              }
+            })
+          }
         });
     });
 }
