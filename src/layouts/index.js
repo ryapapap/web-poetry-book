@@ -13,7 +13,9 @@ const TemplateWrapper = ({ children }) => (
         { name: 'description', content: 'Sample' },
         { name: 'keywords', content: 'sample, something' },
       ]}
-    />
+    >
+      <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700|Libre+Franklin:400,700" rel="stylesheet" />
+    </Helmet>
     <Header />
     <div
       style={{
