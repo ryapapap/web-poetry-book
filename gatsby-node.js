@@ -6,19 +6,16 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   const blogPostTemplate = path.resolve(`src/layouts/writing.js`);
 
   return graphql(`{
-    allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
-      limit: 1000
+    allFile(
+      sort: { fields: modifiedTime, order: DESC}
     ) {
       edges {
         node {
-          excerpt(pruneLength: 250)
-          html
+          modifiedTime
+        	name
           id
-          frontmatter {
-            date
-            path
-            title
+          childMarkdownRemark {
+            html
           }
         }
       }
@@ -29,12 +26,15 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         return Promise.reject(result.errors);
       }
 
-      result.data.allMarkdownRemark.edges
-        .forEach(({ node }) => {
+      result.data.allFile.edges
+        .forEach(({ node }, i) => {
+          const path = `/${i+1}`;
           createPage({
-            path: node.frontmatter.path,
+            path,
             component: blogPostTemplate,
-            context: {} // additional data can be passed via context
+            context: {
+              slug: node.id,
+            }
           });
         });
     });
