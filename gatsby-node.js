@@ -34,6 +34,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
             component: blogPostTemplate,
             context: {
               slug: node.id,
+              index: i+1,
+              max: result.data.allFile.edges.length,
             }
           });
         });

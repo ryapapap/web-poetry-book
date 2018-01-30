@@ -1,8 +1,10 @@
 import React from "react";
+import Link from 'gatsby-link';
 
 export default function Template({
-  data, // this prop will be injected by the GraphQL query below.
+  data, pathContext
 }) {
+  console.log(pathContext);
   return (
     <div className="blog-post-container">
       <div className="blog-post">
@@ -11,6 +13,32 @@ export default function Template({
           dangerouslySetInnerHTML={{ __html: data.file.childMarkdownRemark.html }}
         />
       </div>
+      { pathContext.index !== 1 &&
+        <Link to="/1">
+          First
+        </Link>
+      }
+      { pathContext.index !== 1 &&
+        <Link to={`/${pathContext.index - 1}`}>
+          Prev
+        </Link>
+      }
+      <Link to="/random">
+        Random
+      </Link>
+      <Link to="/index">
+        Index
+      </Link>
+      { pathContext.index !== pathContext.max &&
+        <Link to={`/${pathContext.index + 1}`}>
+          Next
+        </Link>
+      }
+      { pathContext.index !== pathContext.max &&
+        <Link to={`/${pathContext.max}`}>
+          Latest
+        </Link>
+      }
     </div>
   );
 }
