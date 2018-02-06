@@ -1,18 +1,13 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import './styles.css'
 
 const Header = () => (
-  <div
-    style={{
-      background: '#80461B',
-      marginBottom: '1.45rem',
-    }}
-  >
+  <div className="header-container">
     <div
       style={{
         margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
+        padding: '15px',
       }}
     >
       <Link

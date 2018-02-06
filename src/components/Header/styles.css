@@ -1,0 +1,10 @@
+.header-container {
+  background: #333;
+  width: fit-content;
+}
+
+@media  (min-width: 1350px) {
+  .header-container {
+    position: absolute;
+  }
+}

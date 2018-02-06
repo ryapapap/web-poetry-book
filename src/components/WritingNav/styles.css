@@ -2,11 +2,12 @@
 .nav-container {
   display: flex;
   justify-content: center;
+  margin-top: 75px;
 }
 
 .nav-link {
   text-decoration: none;
-  color: #555;
+  color: #444;
 
   &:hover, &:focus {
     color: #000;
@@ -23,7 +24,7 @@
   text-transform: uppercase;
   font-size: 20px;
   cursor: pointer;
-  color: #555;
+  color: #444;
 
   &::first-letter {
     font-size: 27px;
