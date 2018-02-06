@@ -30,7 +30,7 @@ export default function Template({
     >
       Random
     </button>
-      <Link to="/index">
+      <Link to="/map">
         Index
       </Link>
       { pathContext.index !== pathContext.max &&
