@@ -7,11 +7,11 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
   return graphql(`{
     allFile(
-      sort: { fields: modifiedTime, order: DESC}
+      sort: { fields: birthTime, order: DESC}
     ) {
       edges {
         node {
-          modifiedTime
+          birthTime
         	name
           id
           childMarkdownRemark {
@@ -25,28 +25,30 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       if (result.errors) {
         return Promise.reject(result.errors);
       }
-
+      
       result.data.allFile.edges
         .forEach(({ node }, i) => {
-          const path = `/${i+1}`;
+          const index = i+1;
+          const max = result.data.allFile.edges.length;
+          const path = `/${index}`;
           createPage({
             path,
             component: blogPostTemplate,
             context: {
               slug: node.id,
-              index: i+1,
-              max: result.data.allFile.edges.length,
+              index,
+              max,
             }
           });
 
-          if (i+1 === result.data.allFile.edges.length) {
+          if (index === max) {
             createPage({
               path: '/',
               component: blogPostTemplate,
               context: {
                 slug: node.id,
-                index: i+1,
-                max: result.data.allFile.edges.length,
+                index,
+                max,
               }
             })
           }

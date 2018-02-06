@@ -46,6 +46,7 @@ export default function Template({
 export const pageQuery = graphql`
   query BlogPostByPath($slug: String!) {
     file(id: { eq: $slug }) {
+      birthTime
       name
       childMarkdownRemark {
         html
