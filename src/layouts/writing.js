@@ -1,10 +1,9 @@
 import React from "react";
-import Link from 'gatsby-link';
+import Link, { navigateTo } from 'gatsby-link';
 
 export default function Template({
   data, pathContext
 }) {
-  console.log(pathContext);
   return (
     <div className="blog-post-container">
       <div className="blog-post">
@@ -23,9 +22,14 @@ export default function Template({
           Prev
         </Link>
       }
-      <Link to="/random">
-        Random
-      </Link>
+      <button 
+      onClick={() => {
+        const page = Math.floor((Math.random() * pathContext.max) + 1);
+        navigateTo(`/${page}`);
+      }}
+    >
+      Random
+    </button>
       <Link to="/index">
         Index
       </Link>
