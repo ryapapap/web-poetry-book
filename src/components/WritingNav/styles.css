@@ -1,0 +1,35 @@
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #555;
+
+  &:hover, &:focus {
+    color: #000;
+  }
+}
+
+.nav-filler {
+  width: 70px;
+}
+
+.random-btn {
+  background: none;
+  border: none;
+  text-transform: uppercase;
+  font-size: 20px;
+  cursor: pointer;
+  color: #555;
+
+  &::first-letter {
+    font-size: 27px;
+  }
+
+  &:hover, &:focus {
+    color: #111;
+  }
+}
