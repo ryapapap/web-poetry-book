@@ -7,7 +7,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
   return graphql(`{
     allFile(
-      sort: { fields: birthTime, order: DESC}
+      sort: { fields: birthTime, order: ASC}
     ) {
       edges {
         node {
