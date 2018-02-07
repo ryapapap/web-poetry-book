@@ -7,9 +7,11 @@
     "gatsby-link": "^1.6.34",
     "gatsby-plugin-catch-links": "^1.0.15",
     "gatsby-plugin-google-analytics": "^1.0.17",
+    "gatsby-plugin-lodash": "^1.0.8",
     "gatsby-plugin-react-helmet": "^2.0.3",
     "gatsby-source-filesystem": "^1.5.15",
     "gatsby-transformer-remark": "^1.7.30",
+    "lodash": "^4.17.5",
     "react-helmet": "^5.2.0",
     "react-icons": "^2.2.7"
   },

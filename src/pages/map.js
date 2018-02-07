@@ -1,13 +1,14 @@
 import React from "react";
 import Link from 'gatsby-link';
+import _ from 'lodash';
 
 export default function Template({
   data, pathContext
 }) {
-  console.log(data);
+  const pages = _.sortBy(data.allFile.edges, ({ node }) => node.name);
   return (
     <ul className="page-list">
-      {data.allFile.edges
+      {pages
         .map(({ node }, i) => 
           <li>
             <Link to={`/${i+1}`} key={i}>
@@ -23,7 +24,7 @@ export default function Template({
 export const query = graphql`
   query AllWriting {
     # not sure why sorting doesn't work probs a bug here~
-    allFile #(sort: { fields: birthTime, order: DESC}) 
+    allFile #(sort: { fields: name, order: ASC}) 
     {
       edges {
         node {
