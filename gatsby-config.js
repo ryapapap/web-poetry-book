@@ -12,6 +12,13 @@ module.exports = {
         name: "pages",
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-113716157-1",
+        anonymize: true,
+      },
+    },
     `gatsby-transformer-remark`,
   ],
 };
